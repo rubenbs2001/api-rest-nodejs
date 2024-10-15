@@ -24,7 +24,7 @@ module.exports.UsersController = {
       let users = await UsersService.getById(id);
       if (!users) {
         Response.error(res, new createError.NotFound());
-      }else{
+      } else {
         Response.success(res, 200, `Usuario ${id}`, users);
       }
     } catch (error) {
@@ -37,7 +37,7 @@ module.exports.UsersController = {
       const { body } = req;
       if (!body || Object.keys(body).length === 0) {
         Response.error(res, new createError.BadRequest());
-      }else{
+      } else {
         const insertedId = await UsersService.create(body);
         Response.success(res, 201, "Usuario insertado", insertedId);
       }
@@ -55,7 +55,7 @@ module.exports.UsersController = {
       let user = await UsersService.updateUser(id, body);
       if (!user) {
         Response.error(res, new createError.NotFound());
-      }else{
+      } else {
         Response.success(res, 200, `Usuario ${id} actualizado`, user);
       }
     } catch (error) {
@@ -71,7 +71,7 @@ module.exports.UsersController = {
       let user = await UsersService.deleteUser(id);
       if (!user) {
         Response.error(res, new createError.NotFound());
-      }else{
+      } else {
         Response.success(res, 200, `Uusario ${id} eliminado`, user);
       }
     } catch (error) {

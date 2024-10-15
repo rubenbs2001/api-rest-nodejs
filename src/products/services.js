@@ -32,10 +32,7 @@ const updateProduct = async (id, body) => {
     return null;
   }
   const collection = await Database(COLLECTION);
-  return await collection.updateOne(
-    { _id: new ObjectId(id) },
-    { $set: body }
-  );
+  return await collection.updateOne({ _id: new ObjectId(id) }, { $set: body });
 };
 
 const deleteProduct = async (id) => {

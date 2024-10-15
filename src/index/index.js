@@ -18,11 +18,11 @@ module.exports.IndexAPI = (app) => {
 };
 
 module.exports.NotFoundAPI = (app) => {
-    const router = express.Router();
+  const router = express.Router();
 
-    router.all("*", (req, res)=>{
-        Response.error(res, new createError.NotFound());
-    })
+  router.all("*", (req, res) => {
+    Response.error(res, new createError.NotFound());
+  });
 
-    app.use("/", router)
+  app.use("/", router);
 };
