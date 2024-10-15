@@ -24,7 +24,7 @@ module.exports.ProductsController = {
       let product = await ProductsService.getById(id);
       if (!product) {
         Response.error(res, new createError.NotFound());
-      }else{
+      } else {
         Response.success(res, 200, `Producto ${id}`, product);
       }
     } catch (error) {
@@ -37,7 +37,7 @@ module.exports.ProductsController = {
       const { body } = req;
       if (!body || Object.keys(body).length === 0) {
         Response.error(res, new createError.BadRequest());
-      }else{
+      } else {
         const insertedId = await ProductsService.create(body);
         Response.success(res, 201, "Producto insertado", insertedId);
       }
@@ -63,7 +63,7 @@ module.exports.ProductsController = {
       let product = await ProductsService.updateProduct(id, body);
       if (!product) {
         Response.error(res, new createError.NotFound());
-      }else{
+      } else {
         Response.success(res, 200, `Producto ${id} actualizado`, product);
       }
     } catch (error) {
@@ -79,7 +79,7 @@ module.exports.ProductsController = {
       let product = await ProductsService.deleteProduct(id);
       if (!product) {
         Response.error(res, new createError.NotFound());
-      }else{
+      } else {
         Response.success(res, 200, `Producto ${id} eliminado`, product);
       }
     } catch (error) {
